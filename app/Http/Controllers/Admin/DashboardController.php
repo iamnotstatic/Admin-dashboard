@@ -16,8 +16,19 @@ class DashboardController extends Controller
 
 
     public function registerededit(Request $request, $id){
-        $id = findOrFail($id);
+        
+        $user = User:: findOrFail($id);
+        return view('admin.register-edit')->with('user', $user);
+    }
 
-        return view('admin.register-edit')->with('id', $id);
+
+    public function registeredupdate(Request $request, $id){
+        $user = User::find($id);
+        $user->name = $request->input('username');
+        $user->usertype = $request->input('usertype');
+        $user->update();
+
+        return redirect('/role-register')->with('status', 'You have successfully update data');
+
     }
 }

@@ -11,6 +11,11 @@
           <div class="card">
             <div class="card-header">
               <h4 class="card-title"> Simple Table</h4>
+              @if (session('status'))
+              <div class="alert alert-success" role="alert">
+                  {{ session('status') }}
+              </div>
+          @endif
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -33,10 +38,10 @@
                       <td>{{$user->email}}</td>
                       <td>-{{$user->usertype}}</td>
                       <td>
-                          <a href="/role-edit/{{$user->id}}" class="btn btn-primary">Edit</a>
+                          <a href="/role-edit/{{ $user->id }}" class="btn btn-primary">Edit</a>
                       </td>
                       <td>
-                        <a href="/role-delete/{{$user->id}}" class="btn btn-danger">Delete</a>
+                        <a href="/role-delete/{{ $user->id }}" class="btn btn-danger">Delete</a>
                     </td>
                     </tr>
                     @endforeach
