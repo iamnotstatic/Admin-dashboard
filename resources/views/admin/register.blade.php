@@ -36,12 +36,16 @@
                       <td>{{$user->name}}</td>
                       <td>{{$user->phone}}</td>
                       <td>{{$user->email}}</td>
-                      <td>-{{$user->usertype}}</td>
+                      <td>{{$user->usertype}}</td>
                       <td>
                           <a href="/role-edit/{{ $user->id }}" class="btn btn-primary">Edit</a>
                       </td>
                       <td>
-                        <a href="/role-delete/{{ $user->id }}" class="btn btn-danger">Delete</a>
+                        <form action="" method="POST">
+                          {{ csrf_field()}}
+                          {{ method_field('')}}
+                          <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
                     </td>
                     </tr>
                     @endforeach

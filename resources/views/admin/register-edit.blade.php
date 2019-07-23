@@ -25,8 +25,10 @@
                                 <div class="form-group">
                                     <label>Give Role</label>
                                     <select name="usertype" class="form-control">
+                                        <option selected disabled>Give role</option>
                                         <option>Admin</option>
                                         <option>Vendor</option>
+                                        <option>None</option>
                                     </select>
                                 </div>
                                 <button type="submit" class="btn btn-success">Update</button>
