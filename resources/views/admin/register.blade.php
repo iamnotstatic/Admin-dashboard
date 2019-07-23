@@ -10,7 +10,7 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-header">
-              <h4 class="card-title"> Simple Table</h4>
+              <h4 class="card-title">Registered Users</h4>
               @if (session('status'))
               <div class="alert alert-success" role="alert">
                   {{ session('status') }}
@@ -38,14 +38,14 @@
                       <td>{{$user->email}}</td>
                       <td>{{$user->usertype}}</td>
                       <td>
-                          <a href="/role-edit/{{ $user->id }}" class="btn btn-primary">Edit</a>
+                          <a href="/role-edit/{{ $user->id }}" class="btn btn-success">Edit</a>
                       </td>
                       <td>
-                        <form action="" method="POST">
-                          {{ csrf_field()}}
-                          {{ method_field('')}}
-                          <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
+                        <form action="/role-delete/{{ $user->id }}" method="POST">
+                            {{csrf_field()}}
+                            {{method_field('DELETE')}}
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>   
                     </td>
                     </tr>
                     @endforeach
