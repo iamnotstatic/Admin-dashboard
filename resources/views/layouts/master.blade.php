@@ -36,7 +36,7 @@
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li>
-            <a href="./dashboard.html">
+            <a href="/dashboard">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>
@@ -60,7 +60,7 @@
             </a>
           </li>
           <li>
-            <a href="./user.html">
+            <a href="/role-register">
               <i class="now-ui-icons users_single-02"></i>
               <p>User Profile</p>
             </a>
