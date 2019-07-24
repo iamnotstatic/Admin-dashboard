@@ -2,7 +2,7 @@
 
 @section('title')
     Registere Roles
-
+@endsection
 
 @section('content')
     

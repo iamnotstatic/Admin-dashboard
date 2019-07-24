@@ -27,10 +27,10 @@
     -->
       <div class="logo">
         <a href="/dashboard" class="simple-text logo-mini">
-          DB
+          AD
         </a>
         <a href="/dashboard" class="simple-text logo-normal">
-          Dashboarda
+          Admin Dashboard
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">

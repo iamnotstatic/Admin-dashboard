@@ -1,5 +1,5 @@
-<h1 align="center">Dashboarda</h1>
+<h1 align="center">Admin Dashboard</h1>
 
 ## License
-The Dashboarda is open-source software :)
+The  Admin Dashboard is an open-source software :)
 
