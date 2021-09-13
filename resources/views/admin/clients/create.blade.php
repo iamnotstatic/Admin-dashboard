@@ -24,53 +24,101 @@
               <div class="row">
                 <div class="col-md-6 pr-1">
                   <div class="form-group">
-                    <label for="name">Firstname</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Firstname">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Enter name" value="{{ old('name') }}">
+
+                    @error('firstname')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                    @enderror
                   </div>
                 </div>
                 <div class="col-md-6 pr-1">
                   <div class="form-group">
-                    <label for="name">Lastname</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Lastname">
+                    <label for="phone">Phone</label>
+                    <input type="text" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" placeholder="Enter phone" value="{{ old('phone') }}">
+
+                    @error('phone')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                    @enderror
                   </div>
                 </div>
 
                 <div class="col-md-6 pr-1">
                   <div class="form-group">
                     <label for="name">Email address</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Email address">
+                    <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Enter Email address" value="{{ old('email') }}">
+
+                    @error('email')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                    @enderror
                   </div>
                 </div>
                 <div class="col-md-6 pr-1">
                   <div class="form-group">
                     <label for="name">Product Purchased</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Product Purchased">
+                    <input type="text" class="form-control @error('product_purchased') is-invalid @enderror" id="product_purchased" name="product_purchased" placeholder="Enter Product Purchased" value="{{ old('product_purchased') }}">
+
+                    @error('product_purchased')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                    @enderror
                   </div>
                 </div>
 
                 <div class="col-md-6 pr-1">
                   <div class="form-group">
                     <label for="name">Cost price</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Cost price">
+                    <input type="number" class="form-control @error('cost_price') is-invalid @enderror" id="cost_price" name="cost_price" placeholder="Enter Cost price" value="{{ old('cost_price') }}">
+
+                    @error('cost_price')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                    @enderror
                   </div>
                 </div>
                 <div class="col-md-6 pr-1">
                   <div class="form-group">
                     <label for="name">Actual price</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Actual price">
+                    <input type="number" class="form-control @error('actual_price') is-invalid @enderror" id="actual_price" name="actual_price" placeholder="Enter Actual price" value="{{ old('actual_price') }}">
+
+                    @error('actual_price')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                    @enderror
                   </div>
                 </div>
 
                 <div class="col-md-6 pr-1">
                   <div class="form-group">
                     <label for="name">Profit</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Profit">
+                    <input type="number" class="form-control @error('profit') is-invalid @enderror" id="profit" name="profit" placeholder="Enter Profit" value="{{ old('actual_price') }}">
+
+                    @error('profit')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                    @enderror
                   </div>
                 </div>
                 <div class="col-md-6 pr-1">
                   <div class="form-group">
                     <label for="name">Status</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Status">
+                    <input type="text" class="form-control @error('profit') is-invalid @enderror" id="status" name="status" placeholder="Enter Status">
+
+                    @error('status')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                    @enderror
                   </div>
                 </div>
               </div>

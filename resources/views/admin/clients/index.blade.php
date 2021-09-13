@@ -34,7 +34,7 @@
                       Phone
                     </th>
                     <th>
-                      Product Purchased
+                      Product
                     </th>
                     <th>
                       Cost price
@@ -48,25 +48,28 @@
                     <th>
                      Status
                     </th>
+                    <th>
+                      Date
+                     </th>
                   </thead>
                   <tbody>
                     @foreach($clients as $client)
                     <tr>
                       <td>{{$client->id}}</td>
                       <td>{{$client->name}}</td>
-                      <td>{{$client->phone}}</td>
                       <td>{{$client->email}}</td>
+                      <td>{{$client->phone}}</td>
                       <td>{{$client->product_purchased}}</td>
-                      <td>{{$client->cost_price}}</td>
-                      <td>{{$client->actual_price}}</td>
-                      <td>{{$client->profit}}</td>
+                      <td>{{number_format($client->cost_price, 2)}}</td>
+                      <td>{{number_format($client->actual_price, 2)}}</td>
+                      <td>{{number_format($client->profit, 2)}}</td>
                       <td>{{$client->status}}</td>
-                      <td>{{$client->create_at->diffForHumans()}}</td>
+                      <td>{{$client->created_at->toDateString()}}</td>
                       <td>
                           <a href="/clients/{{ $client->id }}" class="btn btn-success">Edit</a>
                       </td>
                       <td>
-                        <form action="/photos/{{ $user->id }}" method="POST">
+                        <form action="/photos/{{ $client->id }}" method="POST">
                             {{csrf_field()}}
                             {{method_field('DELETE')}}
                             <button type="submit" class="btn btn-danger">Delete</button>

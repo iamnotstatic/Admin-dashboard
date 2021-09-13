@@ -36,7 +36,31 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string',
+            'phone' => 'required|numeric',
+            'email' => 'required|string|email',
+            'product_purchased' => 'required|string',
+            'cost_price' => 'required|string',
+            'actual_price' => 'required|string',
+            'profit' => 'required|string',
+            'status' => 'required|string',
+        ]);
+
+        // create client
+        $client = new Client();
+        $client->name = $request->name;
+        $client->email = $request->email;
+        $client->phone = $request->phone;
+        $client->product_purchased = $request->product_purchased;
+        $client->cost_price = $request->cost_price;
+        $client->actual_price = $request->actual_price;
+        $client->profit = $request->profit;
+        $client->status = $request->status;
+        $client->save();
+
+        return redirect()->route('clients.index')->with('success', 'Client created successfully');
+
     }
 
     /**

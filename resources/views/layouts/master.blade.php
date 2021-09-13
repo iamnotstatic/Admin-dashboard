@@ -25,7 +25,7 @@
 
     <div class="sidebar" data-color="orange"><!--Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
-      <div class="logo" style="font-size: 12px">
+      <div class="logo text-bold" style="font-size: 12px">
         <a href="/dashboard" class="simple-text logo-mini">
           DT
         </a>
@@ -50,7 +50,7 @@
          <li class=" {{ 'admin/dashboard' == request()->path() ? 'active' : '' }} ">
             <a href="/admin/dashboard">
               <i class="now-ui-icons users_single-02"></i>
-              <p>User Profile</p>
+              <p>Users Profile</p>
             </a>
           </li>
         </ul>
