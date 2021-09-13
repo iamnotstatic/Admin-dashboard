@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Registere Roles
+    Registered Roles
 @endsection
 
 @section('content')

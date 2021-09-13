@@ -1,13 +1,13 @@
 @extends('layouts.master')
 
 @section('title')
-    Dashboard | Admin Dashboard
+    Dashboard | All Clients
 @endsection
-
 
 @section('subtitle')
-    Admin Dashboard
+    All Clients
 @endsection
+
 
 @section('content')
     
@@ -21,6 +21,9 @@
               <div class="table-responsive">
                 <table class="table">
                   <thead class=" text-primary">
+                    <th>
+                      #
+                    </th>
                     <th>
                       Name
                     </th>
@@ -47,32 +50,30 @@
                     </th>
                   </thead>
                   <tbody>
+                    @foreach($clients as $client)
                     <tr>
+                      <td>{{$client->id}}</td>
+                      <td>{{$client->name}}</td>
+                      <td>{{$client->phone}}</td>
+                      <td>{{$client->email}}</td>
+                      <td>{{$client->product_purchased}}</td>
+                      <td>{{$client->cost_price}}</td>
+                      <td>{{$client->actual_price}}</td>
+                      <td>{{$client->profit}}</td>
+                      <td>{{$client->status}}</td>
+                      <td>{{$client->create_at->diffForHumans()}}</td>
                       <td>
-                        Dakota Rice
+                          <a href="/clients/{{ $client->id }}" class="btn btn-success">Edit</a>
                       </td>
                       <td>
-                        Niger
-                      </td>
-                      <td>
-                        Oud-Turnhout
-                      </td>
-                      <td>
-                        $36,738
-                      </td>
-                      <td>
-                        Oud-Turnhout
-                      </td>
-                      <td>
-                        Oud-Turnhout
-                      </td>
-                      <td>
-                        Oud-Turnhout
-                      </td>
-                      <td>
-                        Oud-Turnhout
-                      </td>
+                        <form action="/photos/{{ $user->id }}" method="POST">
+                            {{csrf_field()}}
+                            {{method_field('DELETE')}}
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>   
+                    </td>
                     </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>
