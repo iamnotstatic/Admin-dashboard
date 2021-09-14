@@ -15,7 +15,7 @@
               <div class="alert alert-success" role="alert">
                   {{ session('status') }}
               </div>
-          @endif
+              @endif
             </div>
             <div class="card-body">
               <div class="table-responsive">

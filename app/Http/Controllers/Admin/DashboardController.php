@@ -34,11 +34,21 @@ class DashboardController extends Controller
     public function registeredupdate(Request $request, $id)
     {
         $user = User::find($id);
-        $user->name = $request->input('username');
-        $user->usertype = $request->input('usertype');
+        if ($request->has('name')) {
+            $user->name = $request->input('username');
+        }
+
+        if ($request->has('usertype')) {
+            if ($user->id === auth()->id()) {
+                return redirect()->back()->with('error', 'You cannot update your own role.');
+            }
+
+            $user->usertype = $request->input('usertype');
+        }
+
         $user->update();
 
-        return redirect('/role-register')->with('status', 'You have successfully update data');
+        return redirect('/users')->with('status', 'You have successfully update data');
     }
 
 
@@ -47,6 +57,6 @@ class DashboardController extends Controller
         $user = User::findorFail($id);
         $user->delete();
 
-        return redirect('/role-register')->with('status', 'User deleted successfully');
+        return redirect('/users')->with('status', 'User deleted successfully');
     }
 }

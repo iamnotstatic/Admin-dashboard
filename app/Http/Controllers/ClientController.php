@@ -60,7 +60,6 @@ class ClientController extends Controller
         $client->save();
 
         return redirect()->route('clients.index')->with('success', 'Client created successfully');
-
     }
 
     /**
@@ -82,7 +81,8 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        //
+        $client = Client::findOrFail($id);;
+        return view('admin.clients.edit', compact('client'));
     }
 
     /**
@@ -94,7 +94,54 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $this->validate($request, [
+            'email' => 'required|email',
+        ]);
+        
+        // update records
+        $client = Client::findOrFail($id);
+
+        if ($request->has('name')) {
+            $client->name = $request->name;
+        }
+
+        if ($request->has('email')) {
+            $client->email = $request->email;
+        }
+
+        if ($request->has('phone')) {
+            $client->phone = $request->phone;
+        }
+
+
+        if ($request->has('product_purchased')) {
+            $client->product_purchased = $request->product_purchased;
+        }
+
+        if ($request->has('cost_price')) {
+            $client->cost_price = $request->cost_price;
+        }
+
+        if ($request->has('actual_price')) {
+            $client->actual_price = $request->actual_price;
+        }
+
+        if ($request->has('profit')) {
+            $client->profit = $request->profit;
+        }
+
+        if ($request->has('status')) {
+            $client->status = $request->status;
+        }
+
+        if (!$client->isDirty()) {
+            return redirect()->route('clients.edit', $client->id)->with('error', 'You need to specify a different value to update');
+        }
+
+        $client->save();
+
+        return redirect()->route('clients.index')->with('success', 'Client updated successfully');
     }
 
     /**
@@ -105,6 +152,9 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $client = Client::findOrFail($id);
+        $client->delete();
+
+        return redirect()->route('clients.index')->with('success', 'Client deleted successfully');
     }
 }

@@ -16,6 +16,12 @@
           <div class="card">
             <div class="card-header">
               <h4 class="card-title">Service Logs</h4>
+
+              @if (session('status'))
+              <div class="alert alert-success" role="alert">
+                  {{ session('status') }}
+              </div>
+            @endif
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -66,10 +72,10 @@
                       <td>{{$client->status}}</td>
                       <td>{{$client->created_at->toDateString()}}</td>
                       <td>
-                          <a href="/clients/{{ $client->id }}" class="btn btn-success">Edit</a>
+                          <a href="/clients/{{ $client->id }}/edit" class="btn btn-success">Edit</a>
                       </td>
                       <td>
-                        <form action="/photos/{{ $client->id }}" method="POST">
+                        <form action="/clients/{{ $client->id }}" method="POST">
                             {{csrf_field()}}
                             {{method_field('DELETE')}}
                             <button type="submit" class="btn btn-danger">Delete</button>

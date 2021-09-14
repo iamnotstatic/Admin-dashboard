@@ -24,6 +24,7 @@ class CreateClientsTable extends Migration
             $table->string('profit');
             $table->string('status');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

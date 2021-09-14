@@ -11,6 +11,11 @@
             <div class="card">
                 <div class="card-header">
                     <h3>Edit Role for Registered User.</h3>
+                    @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                    @endif
                 </div>
                 <div class="card-body">
                    <div class="row">

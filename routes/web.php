@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+Route::get('/', 'HomeController@login')->name('login');
 
 
 Auth::routes();
@@ -26,8 +24,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     Route::resource('clients', 'ClientController');
 
-    Route::get('/admin/dashboard', 'Admin\DashboardController@registered');
-    Route::get('/admin/clients', 'ClientController@index');
+    Route::get('/users', 'Admin\DashboardController@registered');
     Route::get('/role-edit/{id}', 'Admin\DashboardController@registerededit');
     Route::put('/role-register-update/{id} ', 'Admin\DashboardController@registeredupdate');
     Route::delete('/role-delete/{id}', 'Admin\DashboardController@registereddestroy');
